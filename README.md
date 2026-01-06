@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛡️ Heimdall - The Gatekeeper
 
-## Getting Started
+## 📖 Overview
+Heimdall is a production-ready **Identity & Authentication System** built to secure digital applications. It uses OAuth 2.0 (GitHub) to verify user identities and manage secure sessions via cookies, serving as the centralized login portal for the entire project ecosystem.
 
-First, run the development server:
+**[🔗 Live Demo](https://project-heimdall.vercel.app)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
+* **Framework:** Next.js 15 (App Router)
+* **Auth Provider:** Supabase Auth (SSR) + GitHub OAuth
+* **Deployment:** Vercel (Edge Network)
+* **Security:** Middleware Protection
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
+* **OAuth 2.0 Flow:** One-click secure login using GitHub accounts.
+* **Middleware Protection:** Automatically blocks unauthorized access to protected routes (e.g., `/dashboard`) at the server level.
+* **Session Management:** Persistent sessions using secure, HTTP-only cookies.
+* **Dynamic Dashboard:** Personalizes the UI with the user's real GitHub Avatar and Name.
+* **Edge Deployment:** Deployed globally on Vercel for low-latency access.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Architecture
+1.  **User Clicks Login:** Redirects to GitHub Authorization.
+2.  **Callback:** GitHub returns a temporary code to `/auth/callback`.
+3.  **Exchange:** Server exchanges code for a Session Token via Supabase.
+4.  **Cookie Set:** Session token stored in secure cookie.
+5.  **Access:** Middleware verifies cookie on every page load.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Screenshots
+*(Add screenshot of the Login Page and the Asgard Dashboard)*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 Lessons Learned
+* **OAuth Complexity:** Understood the "Request -> Callback -> Exchange" flow of modern auth.
+* **Server vs. Client:** Mastered when to use Client Components (Interactivity) vs. Server Components (Security/Cookies).
+* **Production Config:** Configured Redirect URLs for both Localhost and Production (Vercel) environments.
